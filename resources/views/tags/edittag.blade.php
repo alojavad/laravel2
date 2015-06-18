@@ -5,11 +5,17 @@
 </div>
 <div class="col-md-5">
     <br>
-    <form class="form-horizontal" role="form" method="post" action="{{ URL::to('/') }}/tag">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+
+
+    {{ Form::model($tag, array('method' => 'put',
+    'action' => array('TagController@update', 'tag_id' => $tag -> id),
+    'role' => 'form'
+    )) }}
         <div class="form-group">
             <label for="InputTitle">Title</label>
-            <input type="text" class="form-control" id="InputTitle" name="title" placeholder="Title">
+            <input type="text" class="form-control" id="InputTitle" name="title" placeholder="Title" value="{{ $tag->title}}">
         </div>
         <div class="form-group">
             <label for="InputType">Type</label>
@@ -21,13 +27,16 @@
         </div>
         <div class="form-group">
             <label for="InputDesc">Description</label>
-            <textarea class="form-control" id="InputDesc" name="descr"></textarea>
+            <textarea class="form-control" id="InputDesc" name="descr" rows="6">{{ $tag->descr}}</textarea>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <script>
-        CKEDITOR.replace('desc');
-    </script>
+        <button type="submit" class="btn btn-default">Update</button>
+    {{ Form::close() }}
+    <hr>
+    Delete this record
+    <br>
+    {{ Form::open(array('action' => array('TagController@destroy', $tag -> id), 'method' => 'delete')) }}
+    {{ Form::submit('Delete', array('class' => 'btn btn-default')) }}
+    {{ Form::close() }}
 
     <!--
     {{Form::open(['action'=>'TagController@store','class'=>'form form-horizontal','style'=>'margin-top:50px'])}}
@@ -55,22 +64,6 @@
 </div>
 <div class="col-md-6">
 
-    @if ($tag!="")
 
-    @foreach ($tag as $db)
-    <br><br>
-    <p>
-        {{$db->title}}
-    </p>
-
-    <p>
-        {{$db->descr}}
-        <a href="{{ action('TagController@edit',$db->id) }}">Update</a>
-        &nbsp;
-        <a href="{{ action('TagController@edit',$db->id) }}">Delete</a>
-    </p>
-    <br>
-    @endforeach
-    @endif
 </div>
 @stop

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layout.lnews')
 
 @section('content')
 <div class="container-fluid">

@@ -136,7 +136,6 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
-        'Chrisx\LarForum\LarForumServiceProvider',
 
 
         /*
@@ -197,7 +196,6 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
         'Form'=> 'Illuminate\Html\FormFacade',
         'HTML'=> 'Illuminate\Html\HtmlFacade',
-        'LarForum'  => 'Chrisx\LarForum\LarForum',
 
 	],
 
