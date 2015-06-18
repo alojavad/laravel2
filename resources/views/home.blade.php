@@ -72,7 +72,9 @@
 </div>
 <div class="container" dir="rtl">
     <ul class="col-md-10">
+        @if ($laster!="")
         <li ><a href="home" target="_blank"> <strong>{{$laster->title}}</strong></a> </li>
+        @endif
     </ul>
 
 </div>
@@ -409,22 +411,24 @@
             <div class="titr1_news">
                 <div class="titr1_items">
                     <div style="text-align: right;">
+                        @if ($one!="")
                         {{$one->refre}}
+                        @endif
                     </div>
 
                     <div class="titr1_item">
-                        <a class="picLink" href="/fa/news/209670" target="_blank" title="{{$one->title}}">
-                            <img alt="{{$one->title}}" src="{{$one->image}}" border="0" width="354" height="235" class="titr1_img">
+                        <a class="picLink" href="/fa/news/209670" target="_blank" title="@if ($one!=""){{$one->title}}@endif">
+                            <img alt="@if ($one!=""){{$one->title}}@endif" src="@if ($one!=""){{$one->image}}@endif" border="0" width="354" height="235" class="titr1_img">
                         </a>
                         <div class="titr1_text">
                             <div class="rutitr" style="text-align: center;"></div>
                             <div style="text-align: center;">
                                 <img alt="" src="{{ asset('images/tik.gif')}}" border="0" class="fr_img">
-                                <a class="title8" href="/fa/news/209670" target="_blank" title="{{$one->title}}" style="font-family: nassim-bold;">
-                                    {{$one->title}}
+                                <a class="title8" href="/fa/news/209670" target="_blank" title="@if ($one!=""){{$one->title}}@endif" style="font-family: nassim-bold;">
+                                @if ($one!=""){{$one->title}}@endif
                                 </a>
                             </div>
-                            <div class="lead1">{{$one->abst}}</div>
+                            <div class="lead1">@if ($one!=""){{$one->abst}}@endif</div>
                             <div class="wrapper"></div>
                         </div>
                     </div>
